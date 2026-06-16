@@ -24,3 +24,15 @@ def guess_number(low, high, num_attempts):
     :param num_attempts: The number of attempts the user is given to guess the correct number.
     :returns: True if the user answers any attempt correctly, False otherwise.
     """
+    import random
+    correct_answer = random.randint(low, high)
+    for i in range(num_attempts):
+        print(f"Take a guess betweeen {low} and {high}")
+        print(f"You have {i + 1} of {num_attempts} times to try")
+        guess = input("What is your guess?")
+        if guess.isnumeric():
+            answer = int(guess)
+            if answer == correct_answer:
+                return True
+        if i == num_attempts - 1:
+            return False
